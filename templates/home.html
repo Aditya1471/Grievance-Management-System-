@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OGMS - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- ======= Navbar ======= -->
+  <header>
+    <div class="navbar">
+      <div class="logo">OGMS</div>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}" class="active">Home</a>
+        <a href="{{ url_for('grievance') }}">Submit Grievance</a>
+        <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+      </nav>
+
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Hero Section ======= -->
+  <section class="hero">
+    <h1>Welcome to Online Grievance Management System</h1>
+    <p>Submit and track grievances easily, efficiently, and transparently.</p>
+    <a href="{{ url_for('login') }}" class="btn">Get Started</a>
+  </section>
+
+  <!-- ======= Features Section ======= -->
+  <section class="features">
+    <div class="feature-box">
+      <h3>Submit Complaints</h3>
+      <p>Easily submit your grievances online using our platform.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Track Progress</h3>
+      <p>Stay updated about your grievance status anytime, anywhere.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Admin Response</h3>
+      <p>Admins manage and resolve issues quickly for better satisfaction.</p>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <p>© 2025 Online Grievance Management System | Designed by Aditya Jha (B.Tech CSE - 3rd Year)</p>
+  </footer>
+</body>
+</html>

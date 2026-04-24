@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGMS – Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- ======= Navbar ======= -->
+  <header>
+    <div class="navbar">
+      <div class="logo">OGMS</div>
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('grievance') }}">Submit Grievance</a>
+        <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}" class="active">Admin Panel</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Main Content ======= -->
+  <main>
+    <section class="dashboard-section admin-dashboard">
+      <div class="container">
+        <h1>Admin Dashboard</h1>
+        <p class="subtitle">
+          Welcome, <strong>Admin!</strong> Here you can view and manage all submitted grievances.
+        </p>
+
+        <div class="table-container">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Aditya Jha</td>
+                <td>Library Access Issue</td>
+                <td>Administrative</td>
+                <td><span class="status pending">Pending</span></td>
+                <td><button class="btn-action">Mark Resolved</button></td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Ravi Kumar</td>
+                <td>Wi-Fi Not Working</td>
+                <td>Technical</td>
+                <td><span class="status progress">In Progress</span></td>
+                <td><button class="btn-action">Mark Resolved</button></td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>Priya Sharma</td>
+                <td>Exam Date Clarification</td>
+                <td>Academic</td>
+                <td><span class="status resolved">Resolved</span></td>
+                <td><button class="btn-action disabled" disabled>Resolved</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <p>© 2025 OGMS | Designed by Aditya Jha (B.Tech CSE – 3rd Year)</p>
+  </footer>
+</body>
+</html>

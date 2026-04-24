@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGMS - Submit Grievance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- ======= Navbar ======= -->
+  <header>
+    <div class="navbar">
+      <div class="logo">OGMS</div>
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('grievance') }}" class="active">Submit Grievance</a>
+        <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Flash Messages ======= -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div class="flash-container">
+    {% for category, message in messages %}
+      <div class="flash flash-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endwith %}
+
+  <!-- ======= Grievance Form Section ======= -->
+  <main>
+    <section class="grievance-section">
+      <div class="form-container">
+        <h1>Submit Your Grievance</h1>
+        <p class="form-info">
+          Please provide details about your grievance. We’ll make sure it reaches the right department.
+        </p>
+
+        <form method="POST" action="{{ url_for('grievance') }}">
+          <label for="title">Grievance Title</label>
+          <input type="text" id="title" name="name" placeholder="Enter grievance title" required>
+
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option>Academic</option>
+            <option>Administrative</option>
+            <option>Technical</option>
+            <option>Other</option>
+          </select>
+
+          <label for="desc">Description</label>
+          <textarea id="desc" name="complaint" placeholder="Describe your grievance..." rows="5" required></textarea>
+
+          <button type="submit" class="btn-submit">Submit Grievance</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 OGMS | Designed by Aditya Jha (B.Tech CSE - 3rd Year)</p>
+  </footer>
+</body>
+</html>

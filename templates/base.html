@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGMS - Online Grievance Management System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- ======= Navbar ======= -->
+  <header>
+    <div class="navbar">
+      <div class="logo">OGMS</div>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}" class="{% if active_page == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('grievance') }}" class="{% if active_page == 'grievance' %}active{% endif %}">Submit Grievance</a>
+        <a href="{{ url_for('user_dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">User Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}" class="{% if active_page == 'admin' %}active{% endif %}">Admin Panel</a>
+      </nav>
+
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Flash Messages (if needed later) ======= -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-container">
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- ======= Main Page Content ======= -->
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <script>
+    // Auto-dismiss flash messages after 4 seconds
+    setTimeout(function() {
+        const flashContainer = document.querySelector('.flash-container');
+        if (flashContainer) {
+            flashContainer.style.transition = 'opacity 0.5s ease';
+            flashContainer.style.opacity = '0';
+            setTimeout(() => flashContainer.remove(), 500);
+        }
+    }, 4000);
+  </script>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <p>© 2025 Online Grievance Management System | Designed by Aditya Jha (B.Tech CSE - 3rd Year)</p>
+  </footer>
+</body>
+</html>

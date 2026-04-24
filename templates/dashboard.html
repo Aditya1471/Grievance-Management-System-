@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OGMS – User Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">OGMS</div>
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('grievance') }}">Submit Grievance</a>
+        <a href="{{ url_for('user_dashboard') }}" class="active">User Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="dashboard-section">
+      <h1>User Dashboard</h1>
+      <p>Below is a summary of your submitted grievances and their current status.</p>
+
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+  <tr>
+    <td>1</td>
+    <td>Wi-Fi Issue</td>
+    <td>Technical</td>
+    <td><span class="status-badge status-resolved">Resolved</span></td>
+    <td>Fixed by IT Team</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Hostel Food Quality</td>
+    <td>Administrative</td>
+    <td><span class="status-badge status-pending">Pending</span></td>
+    <td>Under Review</td>
+  </tr>
+</tbody>
+
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 OGMS | Designed by Aditya Jha (B.Tech CSE – 3rd Year)</p>
+  </footer>
+</body>
+</html>

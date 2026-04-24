@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OGMS - Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <!-- ======= Navbar ======= -->
+  <header>
+    <div class="navbar">
+      <div class="logo">OGMS</div>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('grievance') }}">Submit Grievance</a>
+        <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+        <a href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+      </nav>
+
+      <div class="auth-buttons">
+        <a href="{{ url_for('login') }}" class="btn-login active">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Login Section ======= -->
+  <section class="login-section">
+    <div class="login-container">
+      <h1>User Login</h1>
+      <p class="form-info">Access your account to submit and track grievances.</p>
+
+      <form method="POST" action="{{ url_for('login') }}">
+        <label for="email">Email or Username</label>
+        <input type="text" id="email" name="email" placeholder="Enter Email or Username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+        <button type="submit" class="btn-submit">Login</button>
+      </form>
+
+      <p class="register-link">
+        Don’t have an account? <a href="{{ url_for('register') }}">Register here</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <p>© 2025 OGMS | Designed by Aditya Jha (B.Tech CSE - 3rd Year)</p>
+  </footer>
+</body>
+</html>
